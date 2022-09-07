@@ -123,4 +123,5 @@ body::before {
     font-size: 15px;
     color: #999;
     text-decoration: none;
+    margin: 50px;
 }

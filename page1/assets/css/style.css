@@ -2094,6 +2094,7 @@ Footer Section style
 	nav.navbar.bootsnav ul.nav > li > a {
 		font-weight: 600;
 	}
+	nav
 	.navbar-expand-lg .navbar-nav > li {
 		margin-left: 30px;
 	}
@@ -2120,5 +2121,9 @@ Footer Section style
 
 	.navbar-expand-lg .navbar-nav > li {
 		margin-left: 0px;
+	}
+
+	nav.navbar.bootsnav ul.nav > li > a {
+		color: #d14149
 	}
 }

@@ -25,9 +25,70 @@
             </div>
         </form>
         <div class="caption">
-            <a href="">Forgot Password?</a>
+            <button type="submit" id="signUpButton">회원가입하기</button>
+            <button>비밀번호찾기</button>
+            <!-- <a href="">회원가입하기</a>
+            <a href="">비밀번호찾기</a> -->
         </div>
     </section>
     <script src="login.js"></script>
+
+    <!-- 회원가입을 위한 파이어베이스 소스코드 -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCNym4EDHTwyDChGsQvb3ROuIoQvHJGDMk",
+          authDomain: "cp01-5df90.firebaseapp.com",
+          projectId: "cp01-5df90",
+          storageBucket: "cp01-5df90.appspot.com",
+          messagingSenderId: "1087158321364",
+          appId: "1:1087158321364:web:87b15851972140dde03b41",
+          measurementId: "G-EJ53EFGHJB"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
+
+        // id 를 기준으로 Element 추출
+        // 추출한 요소에 click 이벤트가 발생하면 console 에 1을 출력함
+        document.getElementById('signUpButton').addEventListener('click', (event) => {
+            // 새로고침현상을 없애는 이벤트, 어떠한 이벤트가 발생해도 일단 막아줘 !
+            event.preventDefault()
+
+            const email = document.getElementById('id').value
+            const password = document.getElementById('pw').value
+
+            const auth = getAuth();
+            // 유저 생성, 매개변수로 email 과 password를 받음
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    console.log(userCredential)
+                    // Signed in
+                    const user = userCredential.user;
+                    // ...
+                })
+                .catch((error) => {
+                    console.log('error')
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                });
+            // 그리고 console 에 log 를 출력해줘
+            // console.log(1)
+        })
+
+        console.log('hello world')
+        console.log(app)
+      </script>
 </body>
 </html>
