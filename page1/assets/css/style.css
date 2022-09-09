@@ -84,7 +84,6 @@ section { overflow: hidden; }*/
 
 .roomy-100 {
 	padding-top: 100px;
-	padding-bottom: 100px;
 }
 
 .roomy-80 {
@@ -1868,6 +1867,7 @@ Maps Section style
 	position: relative;
 	width: 100%;
 	overflow: hidden;
+	margin-top: 100px;
 }
 
 .maps_text {
@@ -2127,3 +2127,4 @@ Footer Section style
 		color: #d14149
 	}
 }
+

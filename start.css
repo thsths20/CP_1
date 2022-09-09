@@ -12,8 +12,44 @@
 .container {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(yoga.jpg);
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(yoga.jpg) no-repeat center;;
 }
+
+.container .btn {
+    font-family: 'Noto Serif KR', serif;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    margin: 20px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s;
+    float: right;
+}
+
+.container .btn:hover {
+    background-color: darkslategray ;
+    border: 2px solid darkseagreen;
+}
+
+/* .container .btn {
+    width: 120px;
+    height: 40px;
+    margin: 20px;
+    background-color: #00ff0000;
+    color: #fff;
+
+    x 축 y축 블러
+    box-shadow: 0 4px 16px rgba(72, 91, 133, 0.3);
+    font-size: 16px;
+    font-weight: bold;
+    border-color: #fff;
+    border-radius: 20px;
+    float: right;
+    cursor: pointer;
+} */
 
 .container .hero {
     position: absolute;
@@ -68,5 +104,4 @@
 .container .hero button:hover {
     background-color: darkslategray ;
     border: 2px solid darkseagreen;
-
 }
