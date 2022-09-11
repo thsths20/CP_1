@@ -1195,6 +1195,13 @@ Home Section style
 /*
 About section style
 ====================*/
+.box {
+	width: 900px;
+	height: 400px;
+	background-color: white;
+	padding-top: 30px;
+}
+
 
 .main_about {
 	display: flex;

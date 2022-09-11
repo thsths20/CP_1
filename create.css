@@ -22,6 +22,7 @@ body {
 body::before {
     content : "";
     position: absolute;
+    /* 요소들의 수직(겹치는)위치를 정하는 속성 */
     z-index: 1;
     top: 0;
     right: 0;
@@ -30,12 +31,12 @@ body::before {
     background-color: rgba(0,0,0, .7,);
 }
 
-.login-form {
+.create-form {
     position: relative;
     z-index: 2;
 }
 
-.login-form h1 {
+.create-form h1 {
     font-size: 32px;
     color: #fff;
     text-align: center;
@@ -48,6 +49,7 @@ body::before {
     margin-top: 20px;
 }
 
+/* first-child 부모 요소 안에 있는 첫 번째 자식 지정 */
 .int-area:first-child {
     margin-top: 0;
 }
@@ -61,16 +63,20 @@ body::before {
     border-bottom: 1px solid #999;
     font-size: 18px;
     color: #fff;
+
+    /* 빈칸을 클릭했을때 보더박스 */
     outline: none;
 }
 
-/* 아무것도 작성하지 않았을때의 라벨속성 */
+/* 아무것도 작성하지 않았을때 빈칸에 표시되는 라벨 속성 */
 .int-area label {
     position: absolute;
     left: 10px;
     top: 15px;
     font-size: 18px;
     color: #999;
+
+    /* 빈칸에 입력시 메시지가 위로 올라가는 트랜지션(효과) */
     transition: all .5s ease;
 }
 
@@ -111,17 +117,4 @@ body::before {
     border: none;
     border-radius: 25px;
     cursor: pointer;
-}
-
-/* 회원가입하기 속성 */
-.caption {
-    margin-top: 20px;
-    text-align: center;
-}
-/* 회원가입하기 속성 */
-.caption a {
-    font-size: 15px;
-    color: #999;
-    text-decoration: none;
-    margin: 50px;
 }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="create.css">
+    <title>AI 요가 가이드</title>
+</head>
+<body>
+    <section class="create-form">
+        <h1>회원가입 화면</h1>
+        
+        <!-- 작성하는빈칸 -->
+        <form action="">
+            <!-- <div class="int-area">
+                <input type="text" name="name" id="name" autocomplete="off" required>
+                <label for="id">이름</label>
+            </div> -->
+            <div class="int-area">
+                <input type="text" name="e-mail" id="email" autocomplete="off" required>
+                <label for="id">이메일</label>
+            </div>
+            <div class="int-area">
+                <input type="password" name="pw" id="pw" autocomplete="off" required>
+                <label for="id">비밀번호</label>
+            </div>
+            <!-- <div class="int-area">
+                <input type="password" name="Confirm-pw" id="rpw" autocomplete="off" required>
+                <label for="id">비밀번호확인</label>
+            </div> -->
+            
+            <div class="btn-area">
+                <button type="submit" id="createButton">회원가입</button>
+            </div>
+        </form>
+
+
+    </section>
+    <script src="create.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCNym4EDHTwyDChGsQvb3ROuIoQvHJGDMk",
+          authDomain: "cp01-5df90.firebaseapp.com",
+          projectId: "cp01-5df90",
+          storageBucket: "cp01-5df90.appspot.com",
+          messagingSenderId: "1087158321364",
+          appId: "1:1087158321364:web:87b15851972140dde03b41",
+          measurementId: "G-EJ53EFGHJB"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
+
+        document.getElementById('createButton').addEventListener('click', (event) => {
+            event.preventDefault()
+            
+            // const name = document.getElementById('name').value
+            const email = document.getElementById('email').value
+            const pw = document.getElementById('pw').value
+            // const rpw = document.getElementById('rpw').value
+            
+            const auth = getAuth();
+            createUserWithEmailAndPassword(auth, email, pw)
+                .then((userCredential) => {
+                    // 성공시 출력
+                    console.log(userCredential)
+                    // Signed in
+                    const user = userCredential.user;
+                    
+                    // 회원가입 시 로그인 창으로 이동하게
+                    // addEventListener('click', (event) => {
+                        
+                    // })
+                    setTimeout(function(){
+                    location.reload();
+                    },1000); // 1000밀리초 = 1초
+                    // ...
+                })
+                .catch((error) => {
+                    // 실패시 출력
+                    alert("이미 가입된 이메일 입니다.");
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                });
+        })
+
+        
+
+        console.log('hello world')
+        console.log(app)
+      </script>
+</body>
+</html>
