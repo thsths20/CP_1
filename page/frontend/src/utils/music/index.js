@@ -1,3 +1,3 @@
-import count from './count.wav'
+import success from './success.mp3'
 
-export { count }
+export { success }

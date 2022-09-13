@@ -17,8 +17,9 @@ export default function Instructions({ currentPose }) {
                     return(
                         <li className="instruction">{instruction}</li>
                     )
-                    
+
                 })}
+                
             </ul>
             <img 
                 className="pose-demo-img"

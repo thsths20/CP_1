@@ -1,56 +1,66 @@
 export const poseInstructions = {
-    Tree: [
-        'Get into position. Tree pose often starts from mountain pose (or Tadasana), with both feet planted firmly on the ground and your weight adequately distributed so that you are balanced.',
-        'Bend one leg at the knee. Choose the leg you are going to fold in first. If your left leg is your standing leg, keep your left foot planted on the ground, and slowly bend in your right leg at the right knee so that the sole of your right foot rests against your left inner thigh (known as the half-lotus position in Bikram yoga). Point the knee of your bent leg outward, away from your body.',
-        'Lengthen your body. Clasp your hands together in Anjali Mudra (also called the “prayer position”)',
-        'Hold and repeat. Hold the pose for as long as necessary, making sure to breathe properly. When you’re ready to switch legs, exhale, and return to mountain pose to start again.'
+    나무: [
+        '브륵샤아사나(Vrksasana)',
+        '놀란 마음을 진정시킬 때 좋은 나무자세입니다.',
+        '단단하게 뿌리내린 나무를 상상하며 나무자세를 수련해봅시다.',
+        '1. 두 발을 모으고 선채로 합장해주세요.',
+        '2. 한 발에 체중을 싣고, 나머지 발바닥을 무릎 안쪽이나 허벅지에 갖다 대고 중심을 잡습니다',
+        '3. 숨을 5-10회 들이마시고 내뱉으면서 30초간 이 자세를 유지해주세요'
         ],
-    Cobra: [
-        'Lie prone on the floor. Stretch your legs back, tops of the feet on the floor. Spread your hands on the floor under your shoulders. Hug the elbows back into your body.',
-        'On an inhalation, begin to straighten the arms to lift the chest off the floor, going only to the height at which you can maintain a connection through your pubis to your legs. Press the tailbone toward the pubis and lift the pubis toward the navel. Narrow the hip points. Firm but don’t harden the buttocks.',
-        'Firm the shoulder blades against the back, puffing the side ribs forward. Lift through the top of the sternum but avoid pushing the front ribs forward, which only hardens the lower back. Distribute the backbend evenly throughout the entire spine.',    
-        'Hold the pose anywhere from 15 to 30 seconds, breathing easily. Release back to the floor with an exhalation.',
-        'Source: Yoga Journal - https://www.yogajournal.com/poses/types/cobra-pose-2/'
+
+    코브라: [
+        '부장가사나(Bhujangasana)',
+        '메스꺼운 속을 편안하게 만들어주는 코브라자세입니다.',
+        '엎드린 상태에서 상체를 들어올리며 복부를 이완시켜보세요.',    
+        '1. 얼굴을 바닥으로 향하고 다리를 모은 후 손바닥으로 바닥을 짚습니다.',
+        '2. 하체 고정 후 견갑골을 모아 끌어내립니다.',
+        '3. 머리와 가슴을 들어 올리면서 코를 앞으로 들어 30초간 유지합니다.'
     ],
-    Dog: [
-        'Come onto your hands and knees, with your hands a tiny bit in front of your shoulders and your knees directly below your hips. Spread your palms, rooting down through all four corners of your hands, and turn your toes under.',
-        'Exhale and lift your knees from the floor, at first keeping your knees slightly bent and your heels lifted off the floor. Lengthen your tailbone away from the back of your pelvis, lift the sitting bones toward the ceiling, and draw your inner legs from your inner ankles up through your groins.',
-        'On an exhalation, push your top thighs back and stretch your heels toward the floor. Straighten your knees without locking them.',
-        'Firm your outer arms and press the bases of your index fingers actively into the floor. Lift along your inner arms from the wrists to the tops of the shoulders. Firm your shoulder blades against your back, then widen them and draw them toward your tailbone. Keep your head between your upper arms.',
-        'Stay in the pose for 10 or more breaths, then bend your knees on an exhalation and lower yourself into Child’s Pose',
-        'Source: Yoga Journal - https://www.yogajournal.com/poses/types/downward-facing-dog/'
+
+    견상: [
+        '아도 무카 스바나아사나(Adho Mukha Svanasana)',
+        '분노로 날뛰는 심장을 식혀주는 견상자세입니다.',
+        '목과 척추를 쭉 펴고 가슴 속 깊이 시원하게 호흡해보세요.',
+        '1. 우선 무릎과 발등, 손바닥을 바닥에 내려놓고 테이블 자세를 만듭니다.',
+        '2. 힙을 들어올려 팔꿈치와 무릎을 펴 발을 당겨 뒷꿈치를 바닥으로 꾹 눌러줍니다.',
+        '3. 척추와 다리를 곧게 피고 시선은 배꼽을 향하도록 한 후 30초간 유지합니다.'
     
     ],
-    Chair: [
-        'Stand straight and tall with your feet slightly wider than hip­-width apart and your arms at your sides.',
-        'Inhale and lift your arms next to your ears, stretching them straight and parallel with wrists and fingers long. Keep your shoulders down and spine neutral.',
-        'Exhale as you bend your knees, keeping your thighs and knees parallel. Lean your torso forward to create a right angle with the tops of your thighs. Keep your neck and head in line with your torso and arms. Hold for 30 seconds to 1 minute.',
-        'Source: classpass - https://classpass.com/movements/chair-pose'
+    의자: [
+        '우카타아사나 (Utkatasana)',
+        '슬픔을 인내하는 법을 길러주는 의자자세입니다.',
+        '손 끝까지 강하게 힘을 뻗으며 하체 근력을 강화해보세요.',
+        '1. 정자세를 취한 후 숨을 내쉬며 무릎을 90도로 굽혀 손 끝을 바닥에 댑니다.',
+        '2. 숨을 들이쉬며 양 팔을 머리 위로 뻗은 후  쏜끝에서부터 어깨관절까지 끌어 내립니다.',
+        '3. 30초간 이 자세를 유지해주세요.'
+        
     ],
-    Warrior: [
-        'Begin in lunge with your front knee bent, your back leg straight and your back heel lifted. Your hips and chest should be squared to front of the mat. Raise your arms above your head.',
-        'Move your hands to your heart, with palms pressed against each other in a prayer position. Lean forward until your back leg extends straight back, even with your hips. Keep your foot flexed and your gaze downward.',
-        'Make sure your standing leg is strong and straight, but not locked at knee. Reach your arms forward so your body forms a “T” shape.',
-        'Source classpass - https://classpass.com/movements/warrior-3-pose'
+    전사: [
+        '비라바드라아사나 (Virabhadrasana)',
+        '두려움을 직면할 수 있는 용기를 주는 전사자세입니다.',
+        '전장을 나서는 영웅이 된 것처럼 몸의 활력을 느껴보세요.',
+        '1. 다리를 크게 옆으로 벌린 후 양팔을 어개와 일직선으로 올리고, 손바닥을 밑을 향하도록 합니다.',
+        '2. 허벅지가 바닥과 평행할 때까지 직각으로 무릎을 구부립니다.',
+        '3. 얼굴을 돌리고 그 방향의 손을 응시한 채로 30초간 유지합니다.'
     ],
-    Traingle: [
-        'Begin standing, then lightly jump your feet apart to a wide position about three to four feet apart. Turn your left foot out and turn to face that direction. Take a slight bend in your left leg and raise your arms out on your sides, forming a “T” shape.',
-        'Straighten through your left leg, then hinge and reach your torso over your left leg as your hips jut back. Rotate your left palm so it faces the ceiling, and gaze out over your left arm.',
-        'Maintain a long, straight spine as you reach your left hand to the mat, placing it in front of your left foot. If you feel off balance, bring in your back leg closer to shorten your stance. Gaze towards your right arm, which should be extended overhead. Hold and repeat on the other side.',
-        'Source classpass - https://classpass.com/movements/triangle-pose'
+    삼각: [
+        '우티타 트리코나 아사나 (Utthita Trikonasana)',
+        '들뜬 마음의 균형을 잡아주는 삼각자세입니다.',
+        '행복한 감정을 오래도록 간직할 수 있게 고요히 머물러보세요.',
+        '1. 두 다리를 충분히 벌리고, 양 발을 전방을 향해 서주세요',
+        '2. 숨을 들이마시며 한 팔은 하늘을 향해 한 팔은 바닥을 지지하며 수직으로 뻗습니다',
+        '3. 하늘을 바라보며 30초간 이 자세를 유지해주세요'
     ],
-    Shoulderstand: [
-        'Start with a stack of two folded blankets. Lay down on your mat aligning shoulders onto the blankets. With legs bent and feet on the floor (as if setting up for bridge pose) begin to walk your shoulders underneath your upper back feeling the chest gently rising.',
-        'Lift your hips off of the mat coming into bridge pose and extend your arms onto the ground, palms facing down as if your hands could touch your heels. Press firmly into the palms using them as leverage to lift onto the balls of the feet and extend one leg up. Bend at the elbows, place your hands on your low back creating a shelf, and then extend the next leg up.',
-        "Once you raise the legs, don't turn your head to the side to look around the room, since you can injure your neck. Keep your gaze upward and your neck straight.",
-        "Lift up through the balls of your feet. Walk your hands further up the back for more stability. Feel the chest reaching towards the chin to support opening the upper back.",
-        "Move your hips toward the front of the room and your feet toward the back of the room to straighten the body. The correct alignment is with the hips over the shoulders and feet over the hips. Ask your teacher or a friend to help you determine if your legs are perpendicular to the floor.",
-        "Stay in the pose for up to 10 breaths",
-        'Source: verywellfit - https://www.verywellfit.com/shoulderstand-salamba-sarvangasana-3567115'
+    어깨서기: [
+        '살람바 사르방가아사나 (Salamba Sarvangasana)',
+        "누군가를 미워하는 마음을 바로 잡아주는 어깨서기 자세입니다.",
+        "평소와 다른 각도로 거꾸로 서서 세상을 새롭게 바라보세요.",
+        '1. 숨을 들이마시면서 두 다리를 수직으로 뻗어 올려 양 손으로 등 뒤를 지지합니다.',
+        '2. 천천히 두 다리를 하늘을 향해 뻗어 올립니다.(자극이 심할 경우 각도를 조절해주세요)',
+        '3. 30초간 이 자세를 유지해주세요.'
     ]
     
 }
-
 
 export const tutorials = [
     '1. When App ask for permission of camera, allow it to access to capture pose.',

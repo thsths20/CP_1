@@ -1,9 +1,8 @@
 import * as poseDetection from '@tensorflow-models/pose-detection';
 import * as tf from '@tensorflow/tfjs';
 import React, { useRef, useState, useEffect } from 'react'
-import backend from '@tensorflow/tfjs-backend-webgl'
 import Webcam from 'react-webcam'
-import { count } from '../../utils/music'; 
+import { success } from '../../utils/music'; 
  
 import Instructions from '../../components/Instrctions/Instructions';
 
@@ -18,8 +17,8 @@ import { drawPoint, drawSegment } from '../../utils/helper'
 
 let skeletonColor = 'rgb(255,255,255)'
 let poseList = [
-  'Tree', 'Chair', 'Cobra', 'Warrior', 'Dog',
-  'Shoulderstand', 'Traingle'
+  '나무', '의자', '코브라', '전사', '견상',
+   '삼각'
 ]
 
 let interval
@@ -28,46 +27,50 @@ let interval
 // the pose as correct(probability more than threshold)
 let flag = false
 
-
 function Yoga() {
   const webcamRef = useRef(null)
   const canvasRef = useRef(null)
 
 
-  const [startingTime, setStartingTime] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
   const [poseTime, setPoseTime] = useState(0)
-  const [bestPerform, setBestPerform] = useState(0)
-  const [currentPose, setCurrentPose] = useState('Tree')
+  const [currentPose, setCurrentPose] = useState('나무')
   const [isStartPose, setIsStartPose] = useState(false)
-
   
+  
+  
+
   useEffect(() => {
-    const timeDiff = (currentTime - startingTime)/1000
-    if(flag) {
-      setPoseTime(timeDiff)
+    if (flag) {
+      setPoseTime(poseTime + 1)
+      console.log(currentTime)
+
+      if (poseTime == 30) {
+        alert("수련을 마치셨습니다. 요가 메뉴 화면으로 돌아갑니다")
+        window.location.href = "/start"
+      }
     }
-    if((currentTime - startingTime)/1000 > bestPerform) {
-      setBestPerform(timeDiff)
-    }
+
+    
+
   }, [currentTime])
 
 
   useEffect(() => {
     setCurrentTime(0)
     setPoseTime(0)
-    setBestPerform(0)
+
   }, [currentPose])
 
   const CLASS_NO = {
-    Chair: 0,
-    Cobra: 1,
-    Dog: 2,
+    의자: 0,
+    코브라: 1,
+    견상: 2,
     No_Pose: 3,
-    Shoulderstand: 4,
-    Traingle: 5,
-    Tree: 6,
-    Warrior: 7,
+    // Shoulderstand: 4,
+    삼각: 5,
+    나무: 6,
+    전사: 7,
   }
 
   function get_center_point(landmarks, left_bodypart, right_bodypart) {
@@ -120,15 +123,14 @@ function Yoga() {
   const runMovenet = async () => {
     const detectorConfig = {modelType: poseDetection.movenet.modelType.SINGLEPOSE_THUNDER};
     const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet, detectorConfig);
-    const poseClassifier = await tf.loadLayersModel('https://models.s3.jp-tok.cloud-object-storage.appdomain.cloud/model.json')
-    const countAudio = new Audio(count)
-    countAudio.loop = true
+    const poseClassifier = await tf.loadLayersModel('https://raw.githubusercontent.com/thsths20/cp1/main/model.json')
+    const successAudio = new Audio(success)
     interval = setInterval(() => { 
-        detectPose(detector, poseClassifier, countAudio)
+        detectPose(detector, poseClassifier, successAudio)
     }, 100)
   }
 
-  const detectPose = async (detector, poseClassifier, countAudio) => {
+  const detectPose = async (detector, poseClassifier, successAudio) => {
     if (
       typeof webcamRef.current !== "undefined" &&
       webcamRef.current !== null &&
@@ -170,71 +172,75 @@ function Yoga() {
         }
         const processedInput = landmarks_to_embedding(input)
         const classification = poseClassifier.predict(processedInput)
-
-        classification.array().then((data) => {         
+        
+        classification.array().then((data) => {
           const classNo = CLASS_NO[currentPose]
-          console.log(data[0][classNo])
-          if(data[0][classNo] > 0.97) {
-            
-            if(!flag) {
-              countAudio.play()
-              setStartingTime(new Date(Date()).getTime())
+          
+          if (data[0][classNo] > 0.97) {
+
+            if (!flag) {
+              successAudio.play()
               flag = true
             }
-            setCurrentTime(new Date(Date()).getTime()) 
+            setCurrentTime(new Date(Date()).getTime())
             skeletonColor = 'rgb(0,255,0)'
           } else {
             flag = false
             skeletonColor = 'rgb(255,255,255)'
-            countAudio.pause()
-            countAudio.currentTime = 0
+            successAudio.pause()
+            successAudio.currentTime = 0
           }
         })
-      } catch(err) {
+      } catch (err) {
         console.log(err)
       }
-      
-      
+
+
     }
   }
 
-  function startYoga(){
-    setIsStartPose(true) 
+  function startYoga() {
+    setIsStartPose(true)
     runMovenet()
-  } 
+  }
 
   function stopPose() {
     setIsStartPose(false)
     clearInterval(interval)
+    setPoseTime(0)
   }
 
-    
+  
 
-  if(isStartPose) {
+
+  if (isStartPose) {
     return (
       <div className="yoga-container">
         <div className="performance-container">
-            <div className="pose-performance">
-              <h4>Pose Time: {poseTime} s</h4>
-            </div>
-            <div className="pose-performance">
-              <h4>Best: {bestPerform} s</h4>
-            </div>
+          <div className="pose-performance">
+            <h4>수련 시간: {poseTime}초</h4>
           </div>
-        <div>
           
-          <Webcam 
-          width='640px'
-          height='480px'
-          id="webcam"
-          ref={webcamRef}
-          style={{
-            position: 'absolute',
-            left: 120,
-            top: 100,
-            padding: '0px',
-          }}
-        />
+        </div>
+        <div>
+          <div>
+            <img
+              src={poseImages[currentPose]}
+              className="pose-img"
+            />
+          </div>
+          <Webcam
+            width='640px'
+            height='480px'
+            id="webcam"
+            ref={webcamRef}
+            style={{
+              position: 'absolute',
+              left: 120,
+              top: 100,
+              padding: '0px',
+            }}
+          />
           <canvas
             ref={canvasRef}
             id="my-canvas"
@@ -246,21 +252,21 @@ function Yoga() {
               top: 100,
               zIndex: 1
             }}
-          >
-          </canvas>
-        <div>
-            <img 
-              src={poseImages[currentPose]}
-              className="pose-img"
-            />
-          </div>
-         
+          />
+
+
         </div>
-        <button
-          onClick={stopPose}
-          className="secondary-btn"    
-        >Stop Pose</button>
+        <div>
+          <button
+            onClick={stopPose}
+            className="secondary-btn"
+          >그만하기</button>
+        </div>
       </div>
+
+
+ 
+
     )
   }
 
@@ -268,18 +274,21 @@ function Yoga() {
     <div
       className="yoga-container"
     >
-      <DropDown
-        poseList={poseList}
-        currentPose={currentPose}
-        setCurrentPose={setCurrentPose}
-      />
-      <Instructions
+     
+        <DropDown
+          poseList={poseList}
           currentPose={currentPose}
+          setCurrentPose={setCurrentPose}
         />
-      <button
-          onClick={startYoga}
-          className="secondary-btn"    
-        >Start Pose</button>
+        <Instructions
+            currentPose={currentPose}
+ 
+          />
+
+        <button
+            onClick={startYoga}
+            className="secondary-btn"    
+          >시작하기</button>
     </div>
   )
 }

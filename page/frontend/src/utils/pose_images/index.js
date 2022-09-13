@@ -1,19 +1,19 @@
-import chair from './chair.jpg'
-import cobra from './cobra.jpg'
-import dog from './dog.jpg'
-import tree from './tree.jpg'
-import warrior from './warrior.jpg'
-import traingle from './traingle.jpg'
-import shoulderstand from './shoulderstand.jpg'
+import chair from './chair.png'
+import cobra from './cobra.png'
+import dog from './dog.jpeg'
+import tree from './tree.png'
+import warrior from './warrior2.png'
+import traingle from './triangle.png'
+import shoulderstand from './shoulder.png'
 
 export const poseImages = {
-    Tree: tree,
-    Cobra: cobra,
-    Dog: dog,
-    Warrior: warrior,
-    Chair: chair,
-    Traingle: traingle,
-    Shoulderstand: shoulderstand
+    나무: tree,
+    코브라: cobra,
+    견상: dog,
+    전사: warrior,
+    의자: chair,
+    삼각: traingle,
+    어깨서기: shoulderstand
 } 
 
 

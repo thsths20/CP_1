@@ -1,26 +1,30 @@
 .instructions-list {
     width: 40%;
-    border-radius: 8px;
-    border: 5px solid rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    margin-top: 10px;
+    /* border-radius: 8px; */
+    border: 5px solid rgb(255, 255, 255);
+    /* padding: 10px; */
+    /* margin-top: 10px; */
 }
 .instruction {
+    /* height:480px; */
     margin: 10px;
     letter-spacing: 0.5px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 400;
     margin-top: 20px;
 }
 
 .instructions-container {
+    height:490px;
     display: flex;
     justify-content: space-evenly;
     align-content: center;
+    border: 5px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
 .pose-demo-img {
-    height: 400px;
+    height: 480px;
     aspect-ratio: 1;
-    border-radius: 15px;
+
 }
